@@ -11,7 +11,7 @@ module.exports = async () => {
         .then((data) => {
             console.log(`Connected to database: ${data.connection.name} ${data.connection.host}`);
         });
-        console.log('Connected to database ');
+        // console.log('Connected to database ');
     } catch (err) {
         console.error(err.message);
         process.exit(1);

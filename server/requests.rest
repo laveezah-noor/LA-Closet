@@ -6,8 +6,7 @@ POST http://localhost:5000/api/vi/product/new
 Content-Type: application/json
 
 {
-    "title": "Product 1",
-    "summary": "Product 1 description",
+    "summary": "Product 2 description",
     "price": 100,
     "category": "category 1",
     "images": {
@@ -15,6 +14,32 @@ Content-Type: application/json
         "url": "sample_url"
     }
 }
+###
+
+PUT http://localhost:5000/api/vi/product/638b57cf7f001b4b51ebc70a
+Content-Type: application/json
+
+{
+    "title": "Product 1",
+    "summary": "Product 1 description changed",
+    "price": 200,
+    "category": "category 1",
+    "images": {
+        "public_id": "sample_id",
+        "url": "sample_url"
+    }
+}
+###
+
+DELETE http://localhost:5000/api/vi/product/638b654d2cbedb5e39d5cc3b
+Content-Type: application/json
+
+
+###
+
+GET http://localhost:5000/api/vi/product/638b62a3e45ec567d3535d20
+Content-Type: application/json
+
 
 ###
 # {

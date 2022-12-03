@@ -1,16 +1,17 @@
 require('dotenv').config()
 const connection = require('./db');
-const cors = require('cors');
 const jwt = require('jsonwebtoken')
 const express = require('express');
 
+process.on("uncaughtException", (err)=>{
+    console.log(`Error: ${err.message}\nShutting down the server due to uncaught exception`);
+    process.exit(1);
+})
+
 const app = require('./app');
+// var bodyParser = require('body-parser')
 
 connection();
-
-app.use(cors());
-app.use(express.json());
-
 
 // app.get('/products', authenticateToken, (req, res) => {
 //     res.json(posts.filter(post => post.username === req.user.name))
@@ -32,4 +33,13 @@ app.use(express.json());
 
 const port = process.env.PORT || 5000;
 
-app.listen(port, () => console.log(`Server started on port ${port}`)); 
+const server = app.listen(port, () => console.log(`Server started on port ${port}`)); 
+
+process.on("unhandledRejection", (err)=>{
+    console.log(
+        `Error: ${err.message}\nShutting down the server due to unhandled promise rejection`
+    )
+    server.close(()=>{
+        process.exit(1);
+    })
+})
