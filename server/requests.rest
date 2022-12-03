@@ -1,0 +1,30 @@
+GET http://localhost:5000/api/vi/products
+Content-Type: application/json
+###
+
+POST http://localhost:5000/api/vi/product/new
+Content-Type: application/json
+
+{
+    "title": "Product 1",
+    "summary": "Product 1 description",
+    "price": 100,
+    "category": "category 1",
+    "images": {
+        "public_id": "sample_id",
+        "url": "sample_url"
+    }
+}
+
+###
+# {
+#   "_id": {
+#     "$oid": "6387aefd2d599dd9b9430ff3"
+#   },
+#   "title": "",
+#   "summary": "",
+#   "type": "",
+#   "createdAt": "",
+#   "updatedAt": "",
+#   "content": ""
+# }
