@@ -34,15 +34,21 @@ const createProduct = catchAsyncError( async (req, res, next) => {
     });
 })
 
-async function getAllProducts(req, res) {  
-    const apiFeature = new ApiFeature( await ProductModel.find(), req.query).search();
-    const products = apiFeature.query;
+const getAllProducts = catchAsyncError( async (req, res, next) => {  
+    const productCount = await ProductModel.countDocuments();
+    const apiFeature = new ApiFeature( ProductModel, req.query)
+    .search()
+    .filter()
+    .pagination(1);
+    const products = await apiFeature.query;
+    // products();
     res.status(200).json({
         message: "Product shown successfully",
         status: 200,
-        data: products
+        data: products,
+        productCount: productCount
     })
-}
+})
 
 const updateProduct = catchAsyncError( async (req, res, next) => {
     let product = await ProductModel.findById(req.params.id);
