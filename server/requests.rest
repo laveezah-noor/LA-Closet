@@ -76,5 +76,10 @@ Content-Type: application/json
 }
 ###
 
+GET http://localhost:5000/api/vi/logout
+Content-Type: application/json
+
+###
+
 GET http://localhost:5000/api/vi/users
 Content-Type: application/json

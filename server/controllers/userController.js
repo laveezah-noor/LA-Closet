@@ -60,6 +60,17 @@ const loginUser = ( async (req, res, next) => {
     sendToken(user, 200, res, "User logged in successfully");
 })
 
+const logoutUser = catchAsyncError( async (req, res, next) => {
+    res.cookie('token', null, {
+        expires: new Date(Date.now()),
+        httpOnly: true
+    })
+    res.status(200).json({
+        message: "User logged out successfully",
+        status: 200,
+    })
+});
+
 const getAllUsers = catchAsyncError( async (req, res, next) => {  
     const productCount = await UserModel.countDocuments();
     const apiFeature = new ApiFeature( UserModel, req.query)
@@ -146,6 +157,7 @@ const getUser = async (req, res, next) => {
 module.exports = {
     registerUser,
     loginUser,
+    logoutUser,
     getAllUsers,
     updateUser,
     deleteUser,
