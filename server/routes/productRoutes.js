@@ -6,17 +6,17 @@ const {
     deleteProduct,
     getProduct
 } = require('../controllers/productController');
-const { isAuthenticatedUser } = require("../middelware/authentication");
+const { isAuthenticatedUser, authorizeRoles } = require("../middelware/authentication");
 
 const router = Router();
 
 router.route('/products').get(isAuthenticatedUser, getAllProducts);
 
-router.route('/product/new').post(createProduct);
+router.route('/product/new').post(isAuthenticatedUser, authorizeRoles("admin"), createProduct);
 
-router.route('/product/:id').put(updateProduct);
+router.route('/product/:id').put(isAuthenticatedUser, authorizeRoles("admin"), updateProduct);
 
-router.route('/product/:id').delete(deleteProduct);
+router.route('/product/:id').delete(isAuthenticatedUser, authorizeRoles("admin"), deleteProduct);
 
 router.route('/product/:id').get(getProduct);
 

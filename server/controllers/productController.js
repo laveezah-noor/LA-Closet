@@ -16,6 +16,7 @@ const ProductData = {
 
 const createProduct = catchAsyncError( async (req, res, next) => {
     // const product = await ProductModel.create(req.body);
+    req.body.user = req.user.id;
     console.log(req.body)
     ProductModel.create(req.body, (err, data) =>{
         if(!err){

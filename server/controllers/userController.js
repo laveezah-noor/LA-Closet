@@ -55,7 +55,7 @@ const loginUser = ( async (req, res, next) => {
     const isPasswordMatched = await user.comparePassword(password);
     // console.log("I'm here ",isPasswordMatched)
     if(!isPasswordMatched){
-        return next(new ErrorHandler("Invalid email or password", 401))
+        return next(new ErrorHandler("Invalid password", 401))
     }
     sendToken(user, 200, res, "User logged in successfully");
 })
