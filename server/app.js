@@ -2,13 +2,17 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const errorMiddleware = require("./middelware/error");
+const product = require('./routes/productRoutes');
+const user = require('./routes/userRoutes');
+
 
 app.use(cors());
 app.use(express.json());
 
-const product = require('./routes/productRoutes');
 
 app.use("/api/vi", product);
+app.use("/api/vi", user);
+
 
 
 app.use(errorMiddleware);

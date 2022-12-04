@@ -18,7 +18,7 @@ const productSchema = new Schema({
         type: Number,
         default: 0,
     },
-    images:{
+    images:[{
         public_id:{
             type: String,
             required: true,
@@ -27,7 +27,7 @@ const productSchema = new Schema({
             type: String,
             required: true,
         }
-    },
+    }],
     category:{
         type: String,
         required: true,

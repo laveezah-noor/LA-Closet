@@ -54,14 +54,27 @@ Content-Type: application/json
 
 
 ###
-# {
-#   "_id": {
-#     "$oid": "6387aefd2d599dd9b9430ff3"
-#   },
-#   "title": "",
-#   "summary": "",
-#   "type": "",
-#   "createdAt": "",
-#   "updatedAt": "",
-#   "content": ""
-# }
+
+POST http://localhost:5000/api/vi/register
+Content-Type: application/json
+
+{
+    "name": "User 1",
+    "email": "user@boutique.com",
+    "password": "user1",
+    "role": "user"
+}
+
+###
+POST http://localhost:5000/api/vi/login
+Content-Type: application/json
+
+{
+    "email":"user@boutique.com",
+    "password":"user1"
+
+}
+###
+
+GET http://localhost:5000/api/vi/users
+Content-Type: application/json
