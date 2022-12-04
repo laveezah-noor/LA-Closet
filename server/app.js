@@ -4,10 +4,12 @@ const cors = require('cors');
 const errorMiddleware = require("./middelware/error");
 const product = require('./routes/productRoutes');
 const user = require('./routes/userRoutes');
+const cookieParser = require('cookie-parser');
 
 
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
 
 
 app.use("/api/vi", product);

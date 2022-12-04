@@ -2,6 +2,7 @@ const catchAsyncError = require('../middelware/catchAsyncError');
 const UserModel = require('../models/userModel');
 const ApiFeature = require('../utils/apifeatures');
 const ErrorHandler = require('../utils/errorHandler');
+const sendToken = require('../utils/jwtToken');
 
 const ProductData = {
     "title": "User 1",
@@ -29,12 +30,7 @@ const registerUser = catchAsyncError( async (req, res, next) => {
             }
         }, (err, data) =>{
         if(!err){
-            const token = data.getJwtToken();
-            res.json({
-                message: "User created successfully",
-                status: 200,
-                data: token
-            })
+            sendToken(data, 200, res, "User created successfully");
         } else {
             res.json({
                 message: "User creation failed",
@@ -61,12 +57,7 @@ const loginUser = ( async (req, res, next) => {
     if(!isPasswordMatched){
         return next(new ErrorHandler("Invalid email or password", 401))
     }
-    const token = user.getJwtToken();
-    return res.json({
-                message: "User logged successfully",
-                status: 200,
-                data: token
-            }) 
+    sendToken(user, 200, res, "User logged in successfully");
 })
 
 const getAllUsers = catchAsyncError( async (req, res, next) => {  
