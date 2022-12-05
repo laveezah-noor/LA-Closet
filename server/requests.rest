@@ -83,7 +83,7 @@ Content-Type: application/json
 
 {
     "email":"lnsworld.13@gmail.com",
-    "password":"lnoor"
+    "password":"lnoor1"
 
 }
 ###
@@ -96,6 +96,11 @@ Content-Type: application/json
     "password":"admin"
 
 }
+###
+
+GET http://localhost:5000/api/vi/me
+Content-Type: application/json
+
 ###
 
 GET http://localhost:5000/api/vi/logout
@@ -114,4 +119,15 @@ Content-Type: application/json
 {
     "email":"lnsworld.13@gmail.com"
 
+}
+
+###
+
+PUT http://localhost:5000/api/vi/password/update
+Content-Type: application/json
+
+{
+    "oldPassword": "lnoor",
+    "newPassword": "lnoor1",
+    "confirmPassword": "lnoor1"
 }

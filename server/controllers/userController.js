@@ -186,25 +186,32 @@ const deleteUser = async (req, res, next) => {
     } 
 }
 
-const getUser = async (req, res, next) => {
-    await UserModel.findById(
-        req.params.id,
-        (err, data)=>{
-            if(!err){
-                res.json({
+const getUser = catchAsyncError(async (req, res, next) => {
+    const user = await UserModel.findById(req.user.id);
+    
+    if(user){
+    res.json({
                     message: "User found successfully",
                     status: 200,
-                    data: data
-                })
-            } else {
-                res.json({
-                    message: "User not found/failed",
-                    status: 404,
-                    data: err.message
+                    data: user
                 })
             } 
-        }).clone();
-}
+})
+
+const updatePassword = catchAsyncError( async (req, res, next) => {
+    const user = await UserModel.findById(req.user.id).select('+password');
+    const isPasswordMatched = await user.comparePassword(req.body.oldPassword);
+    if(!isPasswordMatched){
+        return next(new ErrorHandler("Old password is incorrect", 400))
+    }
+    if(req.body.newPassword !== req.body.confirmPassword){
+        return next(new ErrorHandler("Password does not match", 400))
+    }
+    user.password = req.body.newPassword;
+    await user.save();
+    sendToken(user, 200, res, "Password updated successfully");
+    
+});
 
 module.exports = {
     registerUser,
@@ -216,4 +223,5 @@ module.exports = {
     updateUser,
     deleteUser,
     getUser,
+    updatePassword
 }
