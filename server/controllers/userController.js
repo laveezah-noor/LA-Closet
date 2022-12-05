@@ -101,6 +101,28 @@ const forgotPassword = catchAsyncError( async (req, res, next) => {
     }
 });
 
+const resetPassword = catchAsyncError( async (req, res, next) => {
+    const resetPasswordToken = crypto
+    .createHash('sha256')
+    .update(req.params.token)
+    .digest('hex');
+    const user = await UserModel.findOne({
+        resetPasswordToken, 
+        resetPasswordExpire: {$gt: Date.now()}});
+    if(!user){
+        return next(new ErrorHandler("Password reset token is invalid or has expired", 400))
+    }
+    if(req.body.password !== req.body.confirmPassword){
+        return next(new ErrorHandler("Password does not match", 400))
+    }
+    user.password = req.body.password;
+    user.resetPasswordToken = undefined;
+    user.resetPasswordExpire = undefined;
+
+    await user.save();
+    sendToken(user, 200, res, "Password reset successfully");
+});
+
 const getAllUsers = catchAsyncError( async (req, res, next) => {  
     const productCount = await UserModel.countDocuments();
     const apiFeature = new ApiFeature( UserModel, req.query)
@@ -188,8 +210,10 @@ module.exports = {
     registerUser,
     loginUser,
     logoutUser,
+    forgotPassword,
+    resetPassword,
     getAllUsers,
     updateUser,
     deleteUser,
-    getUser
+    getUser,
 }

@@ -71,10 +71,10 @@ POST http://localhost:5000/api/vi/register
 Content-Type: application/json
 
 {
-    "name": "Admin",
-    "email": "admin@boutique.com",
-    "password": "admin",
-    "role": "admin"
+    "name": "Noor",
+    "email": "lnsworld.13@gmail.com",
+    "password": "lnoor",
+    "role": "user"
 }
 
 ###
@@ -82,8 +82,8 @@ POST http://localhost:5000/api/vi/login
 Content-Type: application/json
 
 {
-    "email":"user@boutique.com",
-    "password":"user1"
+    "email":"lnsworld.13@gmail.com",
+    "password":"lnoor"
 
 }
 ###
@@ -105,3 +105,13 @@ Content-Type: application/json
 
 GET http://localhost:5000/api/vi/users
 Content-Type: application/json
+
+###
+
+POST http://localhost:5000/api/vi/password/forgot
+Content-Type: application/json
+
+{
+    "email":"lnsworld.13@gmail.com"
+
+}
