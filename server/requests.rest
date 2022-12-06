@@ -131,3 +131,13 @@ Content-Type: application/json
     "newPassword": "lnoor1",
     "confirmPassword": "lnoor1"
 }
+
+###
+PUT http://localhost:5000/api/vi/review
+Content-Type: application/json
+
+{
+    "rating": 4,
+    "comment": "This is a review",
+    "productId": "638b57cf7f001b4b51ebc70a"
+}
