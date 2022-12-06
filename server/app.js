@@ -4,6 +4,7 @@ const cors = require('cors');
 const errorMiddleware = require("./middelware/error");
 const product = require('./routes/productRoutes');
 const user = require('./routes/userRoutes');
+const order = require('./routes/orderRoutes');
 const cookieParser = require('cookie-parser');
 
 
@@ -14,6 +15,8 @@ app.use(cookieParser());
 
 app.use("/api/vi", product);
 app.use("/api/vi", user);
+app.use("/api/vi", order);
+
 
 
 
