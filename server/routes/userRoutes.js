@@ -10,6 +10,8 @@ const {
     resetPassword,
     updatePassword,
     updateProfile,
+    updateUser,
+    deleteUser,
 } = require('../controllers/userController');
 
 const { 
@@ -18,9 +20,13 @@ const {
 
 const router = Router();
 
-router.route('/admin/users').get(getAllUsers);
+router.route('/admin/users')
+.get(isAuthenticatedUser, authorizeRoles('admin'), getAllUsers);
 
-router.route('/admin/user/:id').get(getUserById);
+router.route('/admin/user/:id')
+.get(isAuthenticatedUser, authorizeRoles('admin'), getUserById)
+.put(isAuthenticatedUser, authorizeRoles('admin'), updateUser)
+.delete(isAuthenticatedUser, authorizeRoles('admin'), deleteUser);
 
 router.route('/register').post(registerUser);
 

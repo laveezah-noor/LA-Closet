@@ -139,53 +139,6 @@ const getAllUsers = catchAsyncError( async (req, res, next) => {
     })
 })
 
-const updateUser = catchAsyncError( async (req, res, next) => {
-    let product = await UserModel.findById(req.params.id);
-    if(product){
-        UserModel.findByIdAndUpdate(
-            req.params.id, req.body, {
-            new: true,
-            runValidators: true,
-            useFindAndModify: false
-        }, (err,data)=>{
-            if(!err){
-                res.json({
-                    message: "User updated successfully",
-                    status: 200,
-                    data: data
-                })
-            } else{
-                res.json({
-                    message: "User updation failed",
-                    status: 404,
-                    data: err.message
-                })
-            }
-        })
-    }else{
-        res.json({
-            message: "User updation failed",
-            status: 404
-        })
-    }
-})
-
-const deleteUser = async (req, res, next) => {
-    let product = await UserModel.findById(req.params.id);
-    if(!product){
-        return next(new ErrorHandler("User deletion failed", 404))
-    }
-    if(product){
-        product.remove((err,data)=>{
-            res.json({
-                message: "User deleted successfully",
-                status: 200,
-                data: data
-            })
-        });
-    } 
-}
-
 const getUser = catchAsyncError(async (req, res, next) => {
     const user = await UserModel.findById(req.user.id);
     
@@ -243,6 +196,43 @@ const updateProfile = catchAsyncError( async (req, res, next) => {
     })
 });
 
+// Update user role
+const updateUser = catchAsyncError( async (req, res, next) => {
+    const newUserData = {
+        name: req.body.name,
+        email: req.body.email,
+        role: req.body.role
+    }
+    const user = await UserModel.findByIdAndUpdate(
+        req.params  .id, newUserData, {
+        new: true,
+        runValidators: true,
+        useFindAndModify: false
+        })
+
+
+        res.status(200).json({
+            message: "User updated successfully",
+            status: 200, 
+            data: data
+        })
+});
+
+const deleteUser = catchAsyncError( async (req, res, next) => {
+    
+    const user = await UserModel.findById(req.params.id)
+    if (!user) {
+        return next(new ErrorHandler(`User not found with id: ${req.params.id}`, 404))
+    }
+        
+    await user.remove();
+    res.json({
+        message: "User deleted successfully",
+        status: 200,
+        data: data
+    })
+});
+
 module.exports = {
     registerUser,
     loginUser,
@@ -250,7 +240,7 @@ module.exports = {
     forgotPassword,
     resetPassword,
     getAllUsers,
-    getUuser,
+    getUserById,
     updateUser,
     deleteUser,
     getUser,
