@@ -40,8 +40,7 @@ router.route('/password/update').put(isAuthenticatedUser, updatePassword);
 
 // router.route('/product/:id').delete(deleteProduct);
 
-
-module.exports =  router;// router.route('/product/:id').put(updateProduct);
+// router.route('/product/:id').put(updateProduct);
 
 // router.route('/product/:id').delete(deleteProduct);
 
