@@ -124,18 +124,18 @@ const resetPassword = catchAsyncError( async (req, res, next) => {
 });
 
 const getAllUsers = catchAsyncError( async (req, res, next) => {  
-    const productCount = await UserModel.countDocuments();
+    const userCount = await UserModel.countDocuments();
     const apiFeature = new ApiFeature( UserModel, req.query)
     .search()
     .filter()
     .pagination(10);
-    const products = await apiFeature.query;
+    const users = await apiFeature.query;
     // products();
     res.status(200).json({
         message: "User shown successfully",
         status: 200,
-        data: products,
-        productCount: productCount
+        data: users,
+        productCount: userCount
     })
 })
 
@@ -198,6 +198,19 @@ const getUser = catchAsyncError(async (req, res, next) => {
             } 
 })
 
+const getUserById = catchAsyncError(async (req, res, next) => {
+    const user = await UserModel.findById(req.params.id);
+    
+    if(user){
+    res.json({
+                    message: "User found successfully",
+                    status: 200,
+                    data: user
+                })
+            } 
+})
+
+
 const updatePassword = catchAsyncError( async (req, res, next) => {
     const user = await UserModel.findById(req.user.id).select('+password');
     const isPasswordMatched = await user.comparePassword(req.body.oldPassword);
@@ -213,6 +226,23 @@ const updatePassword = catchAsyncError( async (req, res, next) => {
     
 });
 
+const updateProfile = catchAsyncError( async (req, res, next) => {
+    const newUserData = {
+        name: req.body.name,
+        email: req.body.email,
+    }
+    const user = await UserModel.findByIdAndUpdate(
+        req.user.id, newUserData, {
+        new: true,
+        runValidators: true,
+        useFindAndModify: false
+        })
+    res.status(200).json({
+        message: "User profile updated successfully",
+        status: 200, 
+    })
+});
+
 module.exports = {
     registerUser,
     loginUser,
@@ -220,8 +250,10 @@ module.exports = {
     forgotPassword,
     resetPassword,
     getAllUsers,
+    getUuser,
     updateUser,
     deleteUser,
     getUser,
-    updatePassword
+    updatePassword ,
+    updateProfile
 }
