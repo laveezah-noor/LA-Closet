@@ -1,9 +1,8 @@
 import './homepage.css'
-import PropTypes from 'prop-types'
 import React from 'react'
 // import { connect } from 'react-redux'
 
-const homepage = (props) => {
+const homepage = () => {
   return (
     <div>
 

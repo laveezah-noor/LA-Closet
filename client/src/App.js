@@ -5,36 +5,20 @@ import Registerpage from './views/registerpage/registerpage';
 import Shoppage from './views/shoppage/shoppage';
 import Header from './components/header';
 import Footer from './components/footer';
-import { Card, StudentAllCard, OverviewCard } from './components/card';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-
-function App() {
+export default function App() {
   return (
     <div className="App">
-      {/* <Router> */}
-      {/* <Header/> */}
-<Shoppage/>
-      {/* <Route path='/' element={Homepage} /> */}
-      {/* Hello World */}
-       {/* <Homepage/> */}
-      {/*<Card
-      CourseName="Thsi is a test"
-      CourseDetail="This is a test"
-      />
-      <StudentAllCard
-      CourseName="Thsi is a test"
-      CourseDetail="This is a test"
-      InstructorName="Test"
-      />
-      <OverviewCard
-      /> */}
-      {/* <Loginpage/>
-      <Registerpage/> */}
-      {/* <Footer/> */}
-      {/* </Router> */}
+      <Router>
+        <Header/>
+        <Routes>
+        <Route caseSensitive path='/' element={<Homepage/>}/>
+        <Route path='/shop' element={<Shoppage/>} />
+        <Route path='/login' element={<Registerpage/>} />
+      </Routes>
+      <Footer/>
+      </Router>
     </div>
   );
 }
-
-export default App;
