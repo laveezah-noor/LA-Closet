@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+h4 {
+    font-size: 14px !important;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 30px;
+    position: relative;
+    text-align: center;
+    /* text-transform: uppercase; */
+    z-index: 1;
+}
+
+h4:before {
+    border-top: 4px solid #FFE26A;
+    content:"";
+    margin: 0 auto; /* this centers the line to the full width specified */
+    position: absolute; /* positioning must be absolute here, and relative positioning must be applied to the parent */
+    top: 8px; left: 0; right: 0; bottom: 0;
+    width: 20% !important;
+    z-index: -1;
+}
+.card-main-title{
+    margin-right: 70%;
+    font-size: 0.75rem;
+    margin-top: 50%;
+}
+.card-sub-title{
+    margin-right: 70%;
+    font-size: 0.75rem;
+    margin-top: 50%;
+}
