@@ -8,6 +8,9 @@ import Shoppage from './views/shoppage/shoppage';
 import Header from './components/header';
 import Footer from './components/footer';
 import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Cart from './views/Cart';
+import Checkout from './views/Checkout';
+import ContextCart from './views/ContextCart';
 
 
 export default function App() {
@@ -19,11 +22,14 @@ export default function App() {
         <Header/>
         <Routes>
         <Route caseSensitive path='/' element={<Home/>}/>
+        {/* <Route path='/' element={<ContextCart/>} /> */}
         <Route path='/shop' element={<Shoppage/>} />
         <Route path='/login' element={<Registerpage/>} />
+        <Route path='/checkout' element={<Checkout/>} />
+        <Route path='/cart' element={<Cart/>} />
         {/* <Route path='/admin' element={<Dashboardpage/>} /> */}
       </Routes>
-      {/* <Footer/> */}
+      <Footer/>
       </Router>
     </div>
   );

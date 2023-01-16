@@ -4,11 +4,11 @@ import React from 'react'
 
 const Home = () => {
     return (
-    <div>
+    <div className='home'>
                   <meta charSet="UTF-8" />
                   <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
                   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                  <title>Brie's Boutique</title>
+                  <title>LA's Closet</title>
                   {/* fontawesome cdn */}
                   {/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> */}
                   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
@@ -21,54 +21,7 @@ const Home = () => {
                     <a className="up text-white" href="#header"><i className="fa-solid fa-arrow-up" /></a>
                     <a className="down text-white" href="#footer"><i className="fa-solid fa-arrow-down" /></a>
                   </div>
-                  {/* navbar */}
-                  <nav className="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
-                    <div className="container">
-                      <a className="navbar-brand d-flex justify-content-between align-items-center order-lg-0" href="index.html">
-                        <img src="images/shopping-bag-icon.png" alt="site icon" />
-                        <span className="text-uppercase fw-lighter mx-5">Brie's Boutique</span>
-                      </a>
-                      <div className="order-lg-2 nav-btns">
-                        <button type="button" className="btn position-relative">
-                          <i className="fa fa-shopping-cart" />
-                          {/* <span class = "position-absolute top-0 start-100 translate-middle badge bg-primary">5</span> */}
-                        </button>
-                        <button type="button" className="btn position-relative">
-                          <i className="fa fa-heart" />
-                          {/* <span class = "position-absolute top-0 start-100 translate-middle badge bg-primary">2</span> */}
-                        </button>
-                        <button type="button" className="btn position-relative">
-                          <i className="fa fa-search" />
-                        </button>
-                      </div>
-                      <button className="navbar-toggler border-1 border-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-                        <span className="navbar-toggler-icon" />
-                      </button>
-                      <div className="collapse navbar-collapse order-lg-1" id="navMenu">
-                        <ul className="navbar-nav mx-auto text-center">
-                          <li className="nav-item px-2 py-2">
-                            <a className="nav-link text-uppercase text-dark" href="#header">home</a>
-                          </li>
-                          <li className="nav-item px-2 py-2">
-                            <a className="nav-link text-uppercase text-dark" href="#collection">collection</a>
-                          </li>
-                          <li className="nav-item px-2 py-2">
-                            <a className="nav-link text-uppercase text-dark" href="#special">specials</a>
-                          </li>
-                          <li className="nav-item px-2 py-2">
-                            <a className="nav-link text-uppercase text-dark" href="#blogs">blogs</a>
-                          </li>
-                          <li className="nav-item px-2 py-2">
-                            <a className="nav-link text-uppercase text-dark" href="#about">about us</a>
-                          </li>
-                          <li className="nav-item px-2 py-2 border-0">
-                            <a className="nav-link text-uppercase text-dark" href="#popular">popular</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </nav>
-                  {/* end of navbar */}
+                  
                   {/* header */}
                   <header id="header" className="vh-100 carousel slide" data-bs-ride="carousel" style={{paddingTop: '104px'}}>
                     <div className="container h-100 d-flex align-items-center carousel-inner">
@@ -407,7 +360,7 @@ const Home = () => {
                             velit, nemo, nobis, nulla ullam pariatur totam quos.</p>
                         </div>
                         <div className="col-lg-6 order-lg-0">
-                          <img id="about-us" src="https://scontent.fkhi17-1.fna.fbcdn.net/v/t39.30808-6/277221467_106257522038686_2965787249743176171_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeHliXqIqm4Vwk8NKbG7JkRf0YZGEufq50vRhkYS5-rnS4wHmwqB8H-fBJYX_2SRtNciraN9EGqsWc8QRN154-gm&_nc_ohc=ZrrRyBQnLDYAX---LH5&_nc_ht=scontent.fkhi17-1.fna&oh=00_AfBl0z_rvCy2oR6AHu9-jws4k2bvvTuYo6OJ_pfsH4u1Mw&oe=63BC1A87" alt="" className="img-fluid" />
+                          <img id="about-us" src="logo.png" alt="" className="img-fluid" />
                         </div>
                       </div>
                     </div>
@@ -514,103 +467,7 @@ const Home = () => {
                   </section>
                   {/* end of newsletter */}
                   {/* footer */}
-                  <footer id="footer" className="bg-dark py-5">
-                    <div className="container">
-                      <div className="row text-white g-4">
-                        <div className="col-md-6 col-lg-3">
-                          <a className="text-uppercase text-decoration-none brand text-white" href="index.html">Brie's
-                            Boutique</a>
-                          <p className="text-white text-muted mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Nostrum mollitia quisquam veniam odit cupiditate, ullam aut voluptas velit dolor ipsam?</p>
-                        </div>
-                        <div className="col-md-6 col-lg-3">
-                          <h5 className="fw-light">Links</h5>
-                          <ul className="list-unstyled">
-                            <li className="my-3">
-                              <a href="#" className="text-white text-decoration-none text-muted">
-                                <i className="fas fa-chevron-right me-1" /> Home
-                              </a>
-                            </li>
-                            <li className="my-3">
-                              <a href="#" className="text-white text-decoration-none text-muted">
-                                <i className="fas fa-chevron-right me-1" /> Collection
-                              </a>
-                            </li>
-                            <li className="my-3">
-                              <a href="#" className="text-white text-decoration-none text-muted">
-                                <i className="fas fa-chevron-right me-1" /> Blogs
-                              </a>
-                            </li>
-                            <li className="my-3">
-                              <a href="#" className="text-white text-decoration-none text-muted">
-                                <i className="fas fa-chevron-right me-1" /> About Us
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                        <div className="col-md-6 col-lg-3">
-                          <h5 className="fw-light mb-3">Contact Us</h5>
-                          {/* <div class="d-flex justify-content-start align-items-start my-2 text-muted">
-                                  <span class="me-3">
-                                      <i class="fas fa-map-marked-alt"></i>
-                                  </span>
-                                  <span class="fw-light">
-                                      Albert Street, New York, AS 756, United States of America
-                                  </span>
-                              </div> */}
-                          <div className="d-flex justify-content-start align-items-start my-2 text-muted">
-                            <span id="gmail" className="me-3">
-                              <i className="fas fa-envelope" />
-                            </span>
-                            <a role="button" className="fw-light text-decoration-none text-secondary">
-                              sohailahmed.24j01@gmail.com
-                            </a>
-                          </div>
-                          <div className="d-flex justify-content-start align-items-start my-2 text-muted">
-                            <span id="phone" className="me-3">
-                              <i className="fas fa-phone" />
-                            </span>
-                            <span className="fw-light">
-                              +92 3343701098
-                            </span>
-                          </div>
-                          {/* <h5 class="fw-light mb-3">Join Our Whatsapp Group</h5> */}
-                        </div>
-                        <div className="col-md-6 col-lg-3">
-                          <h5 className="fw-light mb-3">Follow Us</h5>
-                          <div>
-                            <ul className="list-unstyled d-flex">
-                              <li>
-                                <a id="facebook" href="https://www.facebook.com/briesclothingboutique?mibextid=ZbWKwL" className="text-white text-decoration-none text-muted fs-4 me-4">
-                                  <i className="fab fa-facebook-f" />
-                                </a>
-                              </li>
-                              <li>
-                                <a id="whatsapp" href="https://wa.me/03343701098" className="text-white text-decoration-none text-muted fs-4 me-4">
-                                  <i className="fab fa-whatsapp" />
-                                </a>
-                              </li>
-                              <li>
-                                <a id="instagram" href="https://instagram.com/briesboutique2?igshid=MDM4ZDc5MmU=" className="text-white text-decoration-none text-muted fs-4 me-4">
-                                  <i className="fab fa-instagram" />
-                                </a>
-                              </li>
-                              <li>
-                                <a id="youtube" href="https://www.youtube.com/@briesboutique" className="text-white text-decoration-none text-muted fs-4 me-4">
-                                  <i className="fab fa-youtube" />
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </footer>
-                  {/* end of footer */}
-                  {/* jquery */}
-                  {/* isotope js */}
-                  {/* bootstrap js */}
-                  {/* custom js */}
+                  
                 </div>
               );
             };
