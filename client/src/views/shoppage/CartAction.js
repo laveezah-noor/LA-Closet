@@ -1,77 +1,35 @@
 import {
-  ADD_PRODUCT,
-  ADD_PRODUCT_SUCCESS,
-  CANCEL_GET_PRODUCTS,
-  CLEAR_SEARCH_STATE,
-  EDIT_PRODUCT,
-  EDIT_PRODUCT_SUCCESS,
-  GET_PRODUCTS,
-  GET_PRODUCTS_SUCCESS,
-  REMOVE_PRODUCT,
-  REMOVE_PRODUCT_SUCCESS,
-  SEARCH_PRODUCT,
-  SEARCH_PRODUCT_SUCCESS
+  ADD_QTY_ITEM, ADD_TO_BASKET,
+  CLEAR_BASKET,
+  MINUS_QTY_ITEM, REMOVE_FROM_BASKET,
+  SET_BASKET_ITEMS
 } from '@/constants/constants';
 
-export const getProducts = (lastRef) => ({
-  type: GET_PRODUCTS,
-  payload: lastRef
+export const setBasketItems = (items = []) => ({
+  type: SET_BASKET_ITEMS,
+  payload: items
 });
 
-export const getProductsSuccess = (products) => ({
-  type: GET_PRODUCTS_SUCCESS,
-  payload: products
-});
-
-export const cancelGetProducts = () => ({
-  type: CANCEL_GET_PRODUCTS
-});
-
-export const addProduct = (product) => ({
-  type: ADD_PRODUCT,
+export const addToBasket = (product) => ({
+  type: ADD_TO_BASKET,
   payload: product
 });
 
-export const searchProduct = (searchKey) => ({
-  type: SEARCH_PRODUCT,
-  payload: {
-    searchKey
-  }
-});
-
-export const searchProductSuccess = (products) => ({
-  type: SEARCH_PRODUCT_SUCCESS,
-  payload: products
-});
-
-export const clearSearchState = () => ({
-  type: CLEAR_SEARCH_STATE
-});
-
-export const addProductSuccess = (product) => ({
-  type: ADD_PRODUCT_SUCCESS,
-  payload: product
-});
-
-export const removeProduct = (id) => ({
-  type: REMOVE_PRODUCT,
+export const removeFromBasket = (id) => ({
+  type: REMOVE_FROM_BASKET,
   payload: id
 });
 
-export const removeProductSuccess = (id) => ({
-  type: REMOVE_PRODUCT_SUCCESS,
+export const clearBasket = () => ({
+  type: CLEAR_BASKET
+});
+
+export const addQtyItem = (id) => ({
+  type: ADD_QTY_ITEM,
   payload: id
 });
 
-export const editProduct = (id, updates) => ({
-  type: EDIT_PRODUCT,
-  payload: {
-    id,
-    updates
-  }
-});
-
-export const editProductSuccess = (updates) => ({
-  type: EDIT_PRODUCT_SUCCESS,
-  payload: updates
+export const minusQtyItem = (id) => ({
+  type: MINUS_QTY_ITEM,
+  payload: id
 });
