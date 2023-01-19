@@ -30,6 +30,7 @@ const Items = ({ id, description, title, img, price, quantity }) => {
           <i
             className="fas fa-trash-alt remove"
             onClick={() => removeItem(id)}></i>
+
         </div>
       </div>
 
