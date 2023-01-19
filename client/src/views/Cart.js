@@ -2,6 +2,7 @@ import React, { createContext, useReducer, useEffect } from "react";
 import "./cart.css";
 import { products } from "./products";
 import ContextCart from "./ContextCart";
+import { useSelector, useDispatch } from "react-redux";
 import { reducer } from "./reducer";
 import { NavLink as Link } from "react-router-dom";
 
