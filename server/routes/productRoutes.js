@@ -13,7 +13,7 @@ const { isAuthenticatedUser, authorizeRoles } = require("../middelware/authentic
 
 const router = Router();
 
-router.route('/products').get(isAuthenticatedUser, getAllProducts);
+router.route('/products').get(getAllProducts);
 
 router.route('/product/new').post(isAuthenticatedUser, authorizeRoles("admin"), createProduct);
 

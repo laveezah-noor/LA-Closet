@@ -57,6 +57,15 @@ exports.myOrders = catchAsyncError( async (req, res, next) =>{
 }) 
 
 // Get all orders
+exports.getAllOrders = catchAsyncError( async (req, res, next) =>{
+    const orders = await OrderModel.find();
+  
+    res.status(200).json({
+        success: true,
+        data: orders
+    }) 
+}) 
+
 exports.updateOrder = catchAsyncError( async (req, res, next) =>{
     const order = await OrderModel.findById(req.params.id);
     

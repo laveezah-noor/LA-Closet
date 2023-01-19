@@ -194,7 +194,7 @@ transform: scale(1.05);
 .home {
     font-family: var(--sm-font);
     scroll-behavior: smooth;
-    background-color: #FCF9BE;
+    /* background-color: #FCF9BE; */
 }
 
 /* button */
@@ -450,6 +450,7 @@ cursor: pointer;
 }
 
 #newsletter .form-control {
+    margin-bottom: 0 !important;
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
 }

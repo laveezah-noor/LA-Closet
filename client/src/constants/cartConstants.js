@@ -1,0 +1,6 @@
+export const ADD_QTY_ITEM = "ADD_QTY_ITEM";
+export const ADD_TO_BASKET = "ADD_TO_BASKET";
+export const CLEAR_BASKET = "CLEAR_BASKET";
+export const MINUS_QTY_ITEM = "MINUS_QTY_ITEM";
+export const REMOVE_FROM_BASKET = "REMOVE_FROM_BASKET";
+export const SET_BASKET_ITEMS = "SET_BASKET_ITEMS";

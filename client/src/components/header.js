@@ -1,21 +1,24 @@
 import '../views/homepage/homepage.css';
 import './header.css'
 import React from 'react'
+import { HashLink as Link } from 'react-router-hash-link';
 // import {ReactNavbar} from 'overlay-navbar';
 
 const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white fixed-top">
     <div className="container">
-      <a className="navbar-brand d-flex justify-content-between align-items-center order-lg-0" href="index.html">
+    <Link className="navbar-brand d-flex justify-content-between align-items-center order-lg-0" to="/">
         <img src="logo.png" alt="site icon" />
         <span className="text-uppercase fw-lighter mx-5">LA's Closet</span>
-      </a>
+      </Link>
+      
       <div className="order-lg-2 nav-btns">
-        <button type="button" className="btn position-relative">
+      <Link to="/cart" className="btn position-relative">
           <i className="fa fa-shopping-cart" />
           {/* <span class = "position-absolute top-0 start-100 translate-middle badge bg-primary">5</span> */}
-        </button>
+        </Link>
+        
         <button type="button" className="btn position-relative">
           <i className="fa fa-heart" />
           {/* <span class = "position-absolute top-0 start-100 translate-middle badge bg-primary">2</span> */}
@@ -29,23 +32,23 @@ const Header = () => {
       </button>
       <div className="collapse navbar-collapse order-lg-1" id="navMenu">
         <ul className="navbar-nav mx-auto text-center">
-          <li className="nav-item px-2 py-2">
-            <a className="nav-link text-uppercase text-dark" href="#header">home</a>
+        <li className="nav-item px-2 py-2">
+            <Link className="nav-link text-uppercase text-dark" to="/#header">home</Link>
           </li>
           <li className="nav-item px-2 py-2">
-            <a className="nav-link text-uppercase text-dark" href="#collection">collection</a>
+            <Link className="nav-link text-uppercase text-dark" to="/#collection">collection</Link>
           </li>
           <li className="nav-item px-2 py-2">
-            <a className="nav-link text-uppercase text-dark" href="#special">specials</a>
+            <Link className="nav-link text-uppercase text-dark" to="/#special">specials</Link>
           </li>
+          {/* <li className="nav-item px-2 py-2">
+            <Link className="nav-link text-uppercase text-dark" to="/#blogs">blogs</Link>
+          </li> */}
           <li className="nav-item px-2 py-2">
-            <a className="nav-link text-uppercase text-dark" href="#blogs">blogs</a>
-          </li>
-          <li className="nav-item px-2 py-2">
-            <a className="nav-link text-uppercase text-dark" href="#about">about us</a>
+            <Link className="nav-link text-uppercase text-dark" to="/#about">about us</Link>
           </li>
           <li className="nav-item px-2 py-2 border-0">
-            <a className="nav-link text-uppercase text-dark" href="#popular">popular</a>
+            <Link className="nav-link text-uppercase text-dark" to="/#popular">popular</Link>
           </li>
         </ul>
       </div>

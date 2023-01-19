@@ -40,7 +40,7 @@ const getAllProducts = catchAsyncError( async (req, res, next) => {
     const apiFeature = new ApiFeature( ProductModel, req.query)
     .search()
     .filter()
-    .pagination(1);
+    .pagination(10);
     const products = await apiFeature.query;
     // products();
     res.status(200).json({

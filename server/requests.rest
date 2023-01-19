@@ -2,7 +2,15 @@ GET http://localhost:5000/api/vi/products
 Content-Type: application/json
 ###
 
-GET http://localhost:5000/api/vi/products?keyword=Product&price=200
+GET http://localhost:5000/api/vi/products?keyword=category
+Content-Type: application/json
+###
+
+GET http://localhost:5000/api/vi/products?keyword=Suit
+Content-Type: application/json
+###
+
+GET http://localhost:5000/api/vi/products?keyword=Suit&price=200
 Content-Type: application/json
 ###
 
