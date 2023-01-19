@@ -1,11 +1,11 @@
 import {
-    POST_CART_BEGIN,
+    POST_CART,
     POST_CART_SUCCESS,
     POST_CART_FAIL,
-    GET_CART_BY_USERID_BEGIN,
+    GET_CART_BY_USERID,
     GET_CART_BY_USERID_SUCCESS,
     GET_CART_BY_USERID_FAIL
-  } from "../redux/cartAction";
+  } from "../constants/cartConstants";
   
   const initialState = {
     cart: {},
@@ -15,7 +15,7 @@ import {
   
   export default (state = initialState, action) => {
     switch (action.type) {
-      case POST_CART_BEGIN:
+      case POST_CART:
         return {
           ...state,
           loading: true,
@@ -33,7 +33,7 @@ import {
           loading: false,
           error: action.payload.error.response.data
         };
-      case GET_CART_BY_USERID_BEGIN:
+      case GET_CART_BY_USERID:
         return {
           ...state,
           loading: true,

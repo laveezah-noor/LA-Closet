@@ -50,6 +50,9 @@ const Header = () => {
           <li className="nav-item px-2 py-2 border-0">
             <Link className="nav-link text-uppercase text-dark" to="/#popular">popular</Link>
           </li>
+          <li className="nav-item px-2 py-2 border-0">
+            <Link className="nav-link text-uppercase text-dark" to="/shop">Shop</Link>
+          </li>
         </ul>
       </div>
     </div>

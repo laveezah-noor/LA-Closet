@@ -1,9 +1,9 @@
 import './homepage.css'
 import React, { useEffect } from 'react'
-import Product from '../../components/product'
 import { connect } from 'react-redux'
 import {getProduct} from '../../actions/ProductAction'
 import {useDispatch, useSelector} from 'react-redux';
+import ProductCard from '../../components/productCard'
 
 const Home = (props) => {
   const dispatch = useDispatch();
@@ -70,7 +70,7 @@ const Home = (props) => {
             </div>
             <div className="collection-list mt-4 row gx-0 gy-3">
               {
-                products && products.map((product)=><Product product={product}/>)
+                products && products.map((product)=><ProductCard product={product}/>)
               }
               {/* <div className="col-md-6 col-lg-4 col-xl-3 p-2 best">
                 <div className="collection-img position-relative">

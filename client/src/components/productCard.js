@@ -1,4 +1,4 @@
-const product = ({product}) => {
+const ProductCard = ({product}) => {
     const title = product.title;
     const stars = product.rating;
     console.log(product)
@@ -30,4 +30,4 @@ const product = ({product}) => {
     )
 }
 
-export default product;
+export default ProductCard;

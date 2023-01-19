@@ -23,7 +23,7 @@ export default function App() {
         <Routes>
         <Route caseSensitive path='/' element={<Home/>}/>
         {/* <Route path='/' element={<ContextCart/>} /> */}
-        <Route path='/shop' element={<Shoppage/>} />
+        <Route caseSensitive path='/shop' element={<Shoppage/>} />
         <Route path='/login' element={<Registerpage/>} />
         <Route path='/checkout' element={<Checkout/>} />
         <Route path='/cart' element={<Cart/>} />
