@@ -62,14 +62,17 @@ const Carth = () => {
 };
 
 const Cart =()=>{
+  const dispatch = useDispatch();
+  const { cartItems } = useSelector((state) => state.cart);
+  console.log(cartItems);
   return(
-    <div className="cart" style={{"margin-top": "100px"}}>
+    <div className="cart" style={{"marginTop": "100px"}}>
         {/* Page Header Start */}
         <div className="container-fluid bg-secondary mb-5">
           <div className="d-flex flex-column align-items-center justify-content-center" style={{minHeight: '300px'}}>
             <h1 className="font-weight-semi-bold text-uppercase mb-3">Shopping Cart</h1>
             <div className="d-inline-flex">
-              <p className="m-0"><a href>Home</a></p>
+              <p className="m-0"><a >Home</a></p>
               <p className="m-0 px-2">-</p>
               <p className="m-0">Shopping Cart</p>
             </div>
@@ -91,7 +94,33 @@ const Cart =()=>{
                   </tr>
                 </thead>
                 <tbody className="align-middle">
-                  <tr>
+                   {cartItems && cartItems.map((item)=>
+                    <tr key={item.product}>
+                    <td style={{textAlign: 'left'}}>
+                      <img className="px-2" src={item.image} alt="" style={{width: '50px'}} />{item.name}
+                    </td>
+                    <td className="align-middle">${item.price}</td>
+                    <td className="align-middle">
+                      <div className="input-group quantity mx-auto" style={{width: '100px'}}>
+                        <div className="input-group-btn">
+                          <button className="btn btn-sm btn-primary btn-minus">
+                            <i className="fa fa-minus" />
+                          </button>
+                        </div>
+                        <input type="text" className="form-control form-control-sm bg-secondary text-center" defaultValue={1} />
+                        <div className="input-group-btn">
+                          <button className="btn btn-sm btn-primary btn-plus">
+                            <i className="fa fa-plus" />
+                          </button>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="align-middle">$150</td>
+                    <td className="align-middle"><button className="btn btn-sm btn-primary"><i className="fa fa-times" /></button></td>
+                  </tr>
+                )} 
+                  {/*
+                   <tr>
                     <td className="align-middle"><img src="product-1.jpg" alt="" style={{width: '50px'}} /> Colorful Stylish Shirt</td>
                     <td className="align-middle">$150</td>
                     <td className="align-middle">
@@ -195,12 +224,12 @@ const Cart =()=>{
                     </td>
                     <td className="align-middle">$150</td>
                     <td className="align-middle"><button className="btn btn-sm btn-primary"><i className="fa fa-times" /></button></td>
-                  </tr>
+                  </tr> */}
                 </tbody>
               </table>
             </div>
             <div className="col-lg-4">
-              <form className="mb-5" action>
+              <form className="mb-5" >
                 <div className="input-group">
                   <input type="text" className="form-control p-4" placeholder="Coupon Code" />
                   <div className="input-group-append">

@@ -11,7 +11,9 @@ const {
 
 const { isAuthenticatedUser, authorizeRoles } = require("../middelware/authentication");
 
-router.route("/order/new").post(isAuthenticatedUser, createOrder);
+router.route("/order/new").post(createOrder);
+
+// router.route("/order/new").post(isAuthenticatedUser, createOrder);
 
 router.route("/order/:id").get(isAuthenticatedUser, authorizeRoles("admin"), getOrderById);
 

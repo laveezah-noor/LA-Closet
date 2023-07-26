@@ -1,3 +1,7 @@
+
+import { useSelector, useDispatch } from "react-redux";
+import { addItemsToCart } from "../actions/CartAction";
+
 const ProductCard = ({product}) => {
     const title = product.title;
     const stars = product.rating;
@@ -5,8 +9,18 @@ const ProductCard = ({product}) => {
     const imageUrl = product.images[0].url
     const price = product.price
 
+    const dispatch = useDispatch();
+  // const alert = useAlert();
+
+    const addToCartHandler = () => {
+      // dispatch(addItemsToCart(match.params.id, quantity));
+      console.log()
+      dispatch(addItemsToCart(product._id, 1));
+      alert("Item Added To Cart");
+    };
+  
     return(
-        <div className="col-md-6 col-lg-4 col-xl-3 p-2 best">
+        <div className="col-md-6 col-lg-4 col-xl-3 p-2 best" key={product._id}>
                 <div className="collection-img position-relative">
                   <img src={imageUrl} className="w-100" />
                   <span className="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">sale</span>
@@ -24,7 +38,8 @@ const ProductCard = ({product}) => {
                   </div>
                   <p className="text-capitalize my-1">{title}</p>
                   <span className="fw-bold d-block">PKR. {price}</span>
-                  <a href="#footer" className="btn btn-primary my-2">Buy Now</a>
+                  <button className="btn btn-primary my-2"
+                  onClick={addToCartHandler}>Buy Now</button>
                 </div>
               </div>
     )

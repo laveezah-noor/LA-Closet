@@ -1,27 +1,73 @@
 import {
-  ADD_QTY_ITEM, ADD_TO_BASKET,
-  CLEAR_BASKET,
-  MINUS_QTY_ITEM, REMOVE_FROM_BASKET,
-  SET_BASKET_ITEMS
+  ADD_QTY_ITEM, ADD_TO_CART,
+  CLEAR_CART,
+  MINUS_QTY_ITEM, REMOVE_FROM_CART,
+  SET_CART_ITEMS
 } from '../constants/cartConstants';
 
-export const setBasketItems = (items = []) => ({
-  type: SET_BASKET_ITEMS,
+import {
+  // ADD_TO_CART,
+  // REMOVE_CART_ITEM,
+  // SAVE_SHIPPING_INFO,
+} from "../constants/cartConstants";
+import axios from "axios";
+
+// Add to Cart
+export const addItemsToCart = (id, quantity) => async (dispatch, getState) => {
+  const { data } = await axios.get(`http://localhost:5000/api/vi/product/${id}`);
+  
+  dispatch({
+    type: ADD_TO_CART,
+    payload: {
+      product: data.data._id,
+      name: data.data.title,
+      price: data.data.price,
+      image: data.data.images[0].url,
+      stock: data.data.stock,
+      quantity,
+    },
+  });
+
+  localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
+};
+
+// REMOVE FROM CART
+// export const removeItemsFromCart = (id) => async (dispatch, getState) => {
+//   dispatch({
+//     type: REMOVE_CART_ITEM,
+//     payload: id,
+//   });
+
+//   localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
+// };
+
+// // SAVE SHIPPING INFO
+// export const saveShippingInfo = (data) => async (dispatch) => {
+//   dispatch({
+//     type: SAVE_SHIPPING_INFO,
+//     payload: data,
+//   });
+
+//   localStorage.setItem("shippingInfo", JSON.stringify(data));
+// };
+
+export const setCartItems = (items = []) => ({
+  type: SET_CART_ITEMS,
   payload: items
 });
 
-export const addToBasket = (product) => ({
-  type: ADD_TO_BASKET,
+export const addToCart = (product) => ({
+  type: ADD_TO_CART,
   payload: product
 });
 
-export const removeFromBasket = (id) => ({
-  type: REMOVE_FROM_BASKET,
+export const removeFromCart = (id) => ({
+  type: REMOVE_FROM_CART,
   payload: id
 });
 
-export const clearBasket = () => ({
-  type: CLEAR_BASKET
+export const clearCart = () => ({
+  type: CLEAR_CART
 });
 
 export const addQtyItem = (id) => ({

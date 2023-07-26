@@ -149,3 +149,17 @@ Content-Type: application/json
     "comment": "This is a review",
     "productId": "638b57cf7f001b4b51ebc70a"
 }
+###
+
+POST http://localhost:5000/api/vi/order/new
+Content-Type: application/json
+{
+    
+        "orderItems":[], 
+        "shippingInfo":"", 
+        "itemsPrice":[], 
+        "taxPrice":[], 
+        "shippingPrice":"", 
+        "totalPrice":"", 
+        "paymentInfo":""
+}
