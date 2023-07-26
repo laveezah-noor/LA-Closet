@@ -246,7 +246,7 @@ transform: scale(1.05);
 
 /* header */
 .home #header {
-    background: url(E:\Noor\Projects\LA-Closet-main\client\public\banner-img-1.jpg) top/cover no-repeat;
+    background: url("./../../../public/banner-img-1.jpg") top/cover no-repeat;
 }
 
 .home .carousel-inner h1 {
@@ -404,7 +404,7 @@ cursor: pointer;
 }
 /* offers */
 #offers {
-    background: url(E:\Noor\Projects\LA-Closet-main\client\public\offer_img.jpg) center/cover no-repeat;
+    background: url(./../../../public/offer_img.jpg) center/cover no-repeat;
 }
 
 #offers .row {
